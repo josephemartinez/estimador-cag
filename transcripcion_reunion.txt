@@ -1,0 +1,376 @@
+Participante 1
+Buenas.
+Consultor
+Buenos días. Cómo estás Participante 2? Bien, muy bien, por suerte.
+Consultor
+Hola, ¿cómo te va?
+Participante 1
+Bien, todo bien.
+Consultor
+Me alegro. Gracias por el espacio.
+Participante 1
+Gracias a vos.
+Consultor
+Excelente. Bueno, Si quieren arranquemos, dale, yo sepan que leí el documento y bueno, me interesaba un poco en base a lo que me ha dicho Referente RRHH, que ya habían presentado algo, no con proveedor y demás, y un poco la idea mía era alinear eso que habían presentado con lo que yo pueda construir, de manera que esté que sea coherente y que yo no me vaya.
+Consultor
+Por las ramas y que bien alineado lo que ustedes pensaron, si es que si es que hay algo por el estilo. Y si no, cuéntenme ustedes la historia y eso veo cómo me hablo.
+Participante 1
+Te contamos primero porque en relación a lo que te mandó Referente RRHH, no sé, creo que ella como que ponía foco en 2 procesos. Lo que nosotros necesitamos principalmente es esta validación vía API de los títulos.
+Participante 1
+Universitarios de los candidatos que se postulen. Nosotros vamos a tener una base con nombre y apellido y DNI. Bueno, y el título en la carre. Sí, el el título con el que se graduaron y es cruzar esa información para no validar nosotros con el título que el candidato adjunta, sino con la base del Ministerio.
+Consultor
+Ok.
+Participante 2
+Hoy hay un. Nosotros sabemos que hay un link en el que vos ingresas del Ministerio, pones el DNI de la persona y el nombre normalmente y te indica título y la situación. Obviamente que en principio debería estar egresado, pero eso es una búsqueda unitaria, digamos, tenés que no hay posibilidad de hacer búsqueda marcial. Eso es lo que nosotros sabemos hasta el momento. El cliente al que estamos cotizando menciona haber utilizado un API, pero bueno, obviamente. Información interna del cliente con la que podía hacer validaciones masivas y puedo indicar, no sé, 60 nombres con un DNI y que la API le arroje los títulos o NC en el caso de que no encontrara información.
+Consultor
+Pregunta con respecto a esto que el cliente ya usó y demás, la propuesta decía [CLIENTE], ¿es el [CLIENTE] el banco o no? No, no, no, entonces sí. [CLIENTE] pensé que sería, sería, el cliente sería un banco, no porque necesite saber quién es, sino para entender algo en base a lo que vos decís. En la consulta de esa API, ¿es un cliente de Argentina?
+Participante 2
+Sí, son 2 entidades argentinas, es una entidad, es un banco local con el Ministerio de Educación, pero son empresas argentinas.
+Participante 1
+Claro, y ellos no nos. No dicen que en algún momento lo hicieron, pero no es que ni no entramos en detalle.
+Participante 2
+Es más bien un proceso interno con el que nosotros competimos, por así decirlo, en que lo hagan interno o externalicen. Entonces, bueno, no podíamos tampoco indagar mucho. Nosotros no lo tenemos. Entonces es también como poco evidenciar, digamos, claro, no puedo hacerlo, claro, hasta este momento.
+Consultor
+Perfecto, yo traté de hacer previo a esta reunión una mini búsqueda de del y demás, y a priori no encontré una API que esté publicada, no sé, tal vez me hicieron algo parecido, que esté publicada y que se pueda utilizar, y tampoco encontré por ahora un servicio. Digo, quería venir un poquitito más preparado y haber hecho un mini screening, pre screening y no me apareció. Tampoco encontré un servicio argentino.
+Consultor
+Que mediante pago se pueda, se pueda utilizar que esté conectado de alguna manera. Son servicios más de afuera que están conectadas a otras puentes o por supuesto que tengo que seguir buscando y por supuesto que en la medida que ustedes tengan una punta de por dónde podría llegar a hacer o qué experiencia tuvieron y demás o internamente ustedes cómo lo hacen, también me puede llegar a mí a nutrir para ir más directo a hacia la solución.
+Participante 1
+Te hago una pregunta, porque si la API, la única manera de hacerlo es si hay una API pública o esa API se puede desarrollar.
+Consultor
+Claro, o sea, por un lado, el API tiene dos partes, una es la que del sistema del tercero, que expone la posibilidad de acceder a su API con ciertos datos para entrar a su base de datos de manera segura, y la otra es, Construir la otra parte de la API, que sería la que tendríamos que desarrollar nosotros, que mediante los protocolos que ese cliente expuso, nosotros le mandaríamos los datos que necesita para obtener la información que necesitamos nosotros.
+Consultor
+Si del lado del sistema del cliente no está la API, no hay forma de entrar por API. OK, eso sería ese sería el punto. Es el único mecanismo? Es el único mecanismo de seguro, rápido y barato? Sí. Hay otros mecanismos también. Si ustedes me dicen hay un link donde vos entrás y le cargas estos datos y demás y lo puede hacer en un humano, podríamos llegar a emular una un proceso robotizado.
+Consultor
+Sí, que tome de un de un Excel la información y que sea como un robot que está corriendo permanentemente esa misma, ese mismo método que hace un humano que es más lento. Más susceptible a fallas ante cambios en la interfaz, no, pero puede funcionar y yo lo que haría sería ampliaría la búsqueda para encontrar realmente esa alguna API o algo por el estilo, ya sea por el ministerio, ya sea por algún otro lugar.
+Consultor
+Vería, vería incluso hay alguna posibilidad de. De consultar contactos en universidades y demás, cosa de que de que nos permita, nos permita como preguntarle a todos los posibles que y en función de la respuesta que tengamos, ahí diseñaremos la solución mínimo viable para poder ofrecerle a ustedes qué es lo que se puede hacer.
+Participante 2
+Sí, Nosotros yo traté de tomar contacto con el Ministerio, pero bueno, no tuve suerte. Por ahí se requiere un contacto interno, porque por la vía, digamos, este publicada es medio difícil el teléfono. Totalmente, totalmente. Pero si tenés, si hay algún contacto, por lo menos para saber por ahí, no, si viene a nosotros también la información es que no existe esa API. El banco dice, nuestro cliente dice haberlo efectuado.
+Participante 2
+Parece raro que porque lo menciona muchas veces, parece raro que lo que lo haya imaginado.
+Participante 1
+Si no es algo tan accesible que por ahí podamos tener una reunión.
+Participante 1
+Sí, le pedimos a que nos hagan el contar, viste que en la primera reunión estuvo el de sistemas. Sí, bueno, como para ver si tenemos ya con ciertas reuniones que tuvimos y búsquedas para decir, bueno, no es algo que esté tan a la mano para, O sea, nosotros tenemos el equipo para poder hacerlo, pero darnos una pregunta.
+Consultor
+Sí, Es que observar esa información no tendría tampoco demasiado sentido que ellos hayan encontrado un lugar por donde consultar. No, no es ni siquiera una parte importante. Digo, es crítica tenerlo o no tenerla, pero tampoco. Sí, pero no es solución.
+Participante 2
+Además es una base pública. Eso es un tema operativo de como no es que están. No arrancamos por ahí
+Participante 1
+Porque creo que ahora con esto que nos está diciendo vos que ya nos encontramos, o sea, lo mismo lo que vos no dijiste del robot fue lo mismo que, o sea, como que nos dieron esa alternativa. No avanzamos para nada con nada todavía. Yo me junté con Referente RRHH para entenderlo de lo del robot que ella nos decía. Tiene un costo que obviamente solo estamos pensando, pero hay que entrenarlo como que un mes, un humano haciendo la tarea para que el robot vea todos los errores que puede llegar a tener.
+Participante 1
+Entonces, como hacer ese entrenamiento que decía, eso lo podemos hacer si arrancamos. Todavía estamos en una instancia de cotización de presentación, pero sí a esta altura creo que podemos decirles a ellos. Tenemos el equipo y podemos hacerlo, pero necesitaríamos el contacto.
+Consultor
+Para entender un poquito, si me pueden contar el contexto de esta oferta, de esta propuesta. Ustedes lo que digan, ustedes están cotizando un servicio de elección.
+Participante 1
+Lo que ellos nos piden es un programa de jóvenes profesionales.
+Participante 1
+Y la expectativa es que se postulen, ponele que alrededor por números anteriores, 10.000 personas.
+Participante 1
+O sea, es una convocatoria a nivel nacional. Bien. Entonces, lo que nos piden en realidad es la validación de los candidatos que se postulan. Ni siquiera entrar en el proceso de selección, o sea, como que, Mínimamente tomaríamos contacto con los candidatos o por ahí no mínimamente, pero con los candidatos que estén en una instancia que no estén en esa base, porque como son jóvenes profesionales, va a ser como que te diga, no sé, de 20 23 en adelante los graduados.
+Participante 1
+Entonces puede haber graduados recientes que no estén en esa base porque todavía no entraron al sistema. Ok, y ahí vamos a tener que validar más. Manualmente o con las universidades, algunas cosas, pero el programa es a nivel nacional, con universidades dentro del país. Por eso es todo como macro. Nosotros tenemos programas y contacto con universidades, pero no con todas las del país.
+Participante 1
+Hicimos validaciones de programas por 100 vacantes o 200 vacantes que tenés que procesar 500 o 600, pero no 10.
+Participante 2
+Acá el tema es que el cliente necesita por procedimientos internos tener la trazabilidad de todos los candidatos por más que base conciencia y se postularon 10.000 tiene que poder decir 5000 lo dejan afuera por esto otro 2000 lo dejan afuera por esto otro. Entonces vamos a tener la instancia esta validación con el Ministerio y al mismo tiempo el cruzado con el chequeo de la documentación. O sea que hay que validar porque el candidato va a poder cargar su mano va a tener que cargar el analítico o el título Igual.
+Participante 1
+Perdón, como que el proceso sería primer paso, cargan en un sistema nuestro que es una TS de postulaciones. Ahí va a haber un formulario que va a filtrar carreras que no apliquen, fechas de graduación que no apliquen. Bueno, todo lo que no aplique en esa primera instancia de filtro queda fuera. Los que sí son los que vamos a ir a cruzar con la base. Y después lo que decía Participante 2 es el chequeo y la documentación, porque yo puedo tener que ver el dni, el currículum y el título, pero si ya en la base de título no está.
+Participante 2
+Y lo que pasa es que puede haber un gap entre que por algún motivo no esté y el tipo te cargue el título. Entonces
+Participante 1
+Para eso, o sea, si es un título entrada, como que esos son los casos que tenemos que ver. Por fuera. Si ahora no sé, la constancia de título en trámite tiene un QR, tiene un link de validación, algo que lo que ellos quieren cuidar es que no tengamos títulos falsos o constancias falsificadas y que avance una persona. Por eso es el chequeo con la base oficial.
+Consultor
+Bien. Y o sea, los títulos que se presenten tienen un QR, me dijiste,
+Participante 2
+Ese es un punto importante, ya que estamos, porque ese ahí tenemos también un tema. Qué pasa? Los títulos no sabemos si todos van a tener QR. Los últimos, por otro lado, el hecho de ser con Pablo, mayoritariamente los títulos de las las últimas camadas y de la mayoría de las facultades, porque al ser también nacional no sabemos las facultades que van a ser, puede ser cualquiera, tienen un QR, tienen una firma digital, es un PDF formal, digamos. Entonces también habría un espacio para hoy.
+Participante 2
+Nosotros tenemos la lógica de agarro el documento y escaneo el QR para ver si es válido. Ese es el procedimiento tradicional al volumen. También hay un espacio para pensar si hay alguna herramienta en la cual yo descargo el título, el PDF título, lo pongo en alguna herramienta y lo valida. No sé si existe, si se puede hacer y que nos quede en todo caso los títulos que no son con QR o con link. Ok, eso sería porque si una facultad me lo hace o el candidato lo sube como foto, no sé, hay que ver, pero en muchos casos, de hecho, los de secundaria ya los están haciendo en PDF con QR, o sea, estás el archivo.
+Consultor
+Sería posible que me manden un pedacito de título como para entender el formato?
+Participante 1
+No, del equipo, porque todavía no tenemos, y los que nosotros tenemos son estudiantes.
+Participante 2
+No, claro, son pasantías.
+Participante 1
+Y los trainees también son estudiantes.
+Participante 1
+Pero sí, lo chequeamos y.
+Consultor
+Como tener esa información y recorrer el camino manual y ver de qué manera se puede automatizar con una guía.
+Participante 2
+Porque el cliente un poco me mencionó dicho, pero igual chequear la documentación la vas a variar, pero él me dijo que hay algunas diferencias entre la información registrada o no en el en la página del Ministerio que van al punto de la fecha de egreso. Ellos tienen un corte. Si egresaste en tal fecha, lo que pasa es que dice que a veces se.
+Participante 1
+Referencia la última materia cuando presentaste.
+Participante 2
+Él dice la la fecha correcta es emisión de título, pero a veces depende de la universidad cargan la última materia o la emisión del título y como eso va a ser una fecha de corte por ahí algunos le subieron como fecha de última materia, pero no está comprendido en ese en ese en el rango deberíamos descartar.
+Participante 2
+Entonces ahí cuál es el documento de respaldo de eso el título el título tiene las fechas.
+Participante 1
+O sea que ahí por más que en la base esté cargado algo quizás el título.
+Consultor
+Tal cual quizás lo que podríamos en ese caso hacer es, Con toda la información que procesemos y se reconozca datos, la registramos en una en la en el Excel, en la base de datos que definamos usar. Entonces podemos poner un campo que sea la fecha que dice el título, un campo que diga la última materia aprobada, la fecha,
+Participante 2
+La última materia. Eso te te quería consultar porque existe la posibilidad de que yo te dé un PDF, o sea que no a vos quiero decir que sos una herramienta en el PDF y ciertos campos los completes, por ejemplo, Facultad, carrera, fecha de egreso, DNI y nombre. Bueno, entonces eso es lo que porque en un principio el ministerio era bastante infalible. Al lunes, cuando hablé me dijo, mirá que es bastante fallido.
+Participante 1
+Esa data no la tenía. Teníamos que hacer el chequeo de porque es.
+Participante 2
+Parte del servicio. Lo que pasa es que ahora entonces un poco mira a que el documento es lo más fidedigno. Si alguien me sube el PDF correcto. Eso es lo más fidediquino, incluso que el ministerio.
+Consultor
+Déjame Ver si te entendí es si cargó el título en PDF con QR. Toda la información que tenga ese título con PDF QR es y si con a través del del QR se valida que es correcto y que se que está en el ministerio y que existe. Información que surge de ese documento es lo que se debiera tomar como la.
+Participante 1
+O sea que el Ministerio validaría el como el título en sí, pero la, o sea, si no está en el Ministerio, chau, no? Bueno, hay que ver estos grises, no debería, pero lo que quiero, pero como que el Ministerio te valida que la persona está graduada, la fecha que hay que tomar, que es lo que decía, o sea, es la del documento. Es de documento. Al final tenemos un mix porque antes para mí es no me importa tanto el título. Vamos al Ministerio a validar todo ahí.
+Participante 2
+Claro, así era. Pero lo que pasa es que no nos había dicho. El Ministerio hemos tenido bastantes discrepancias en 20 candidatos por ninguna. Pero bueno
+Participante 1
+Entonces ahí sería. Validamos en el Ministerio todo. Si logramos la API y todo. Y, Los que quedan afuera por fecha son los que hay que ir a revisar si en realidad la fecha del Ministerio no los perjudica y la fecha.
+Participante 2
+Si nosotros dijimos que lo vamos a estar revisando, que sea el título o todo el documental este que estaba contemplado. Vos vas a tener que abrir. Lo que pasa es.
+Participante 1
+Que una cosa es controlar un título, otra cosa es registrar. Sí, esta fecha la puso con esta es el.
+Participante 2
+Problema que se arma es más que nada con la fecha de emisión. Eso no habíamos hablado. Sí habíamos hablado del título, porque puede pasar que la facultad emitió el título y no lo no le impactó ahí. Entonces, si vos el tipo el pibe no te aparece en el registro y cargó un título, tengo que ver si ese título es válido. Ahí va a tener que ver el QR. Entonces, por eso, por ahí yo pensé que era más fidedigno. Ministerio, lo que me dijo ayer es ojo que tenés discrepancias.
+Consultor
+Ok. Bueno, y con respecto a los otros documentos, también se tiene que validar el DNI que cargan o no?
+Participante 1
+En realidad, o sea, eso era lo que yo te quería aclarar porque entiendo que Referente RRHH lo puso.
+Consultor
+Sí, está en el documento.
+Participante 1
+Lo que nosotros pensamos es yo no voy a ver a la persona, De evaluar. En realidad, yo lo que tengo que ver es que el DNI que la persona carga sea el DNI del título, pero no ir al Renaper ahí, o sea, a validar si.
+Consultor
+La persona que dice es.
+Participante 1
+Claro, O sea, no sé, pensémoslo, pero como que no, no, no, ya tendría que ser que no pone un título, o sea, lo falso, lo falso, Así.
+Participante 2
+Si pongo mis datos y cargo un título de una persona que efectivamente es esa y egresó de esa facultad, ponele, yo soy Participante 2 y este es mi título, vos decís, che, egresó, Participante 2 tiene esta edad y este título.
+Participante 1
+Claro, eso se vota para que seas vos y que no vayas yo haciéndome la.
+Participante 2
+Y No tendría mucho sentido poner un DNI falso, eso no tiene mucho sentido. Lo que probablemente adulteren es un título universitario, ¿no? El DNI. En definitiva, entonces vos ahora levantas el DNI y es el del título. Yo ya entiendo que lo daría porque es verdadero. Claro.
+Participante 1
+Bueno, eso ahí fue donde esperar. Dijimos al final como que lo del DNI es validar que coincidan, que sea nombre, persona, número de DNI en el título. Veíamos si está el DNI o no está el DNI que habíamos dicho adelante.
+Participante 2
+No, atrás sí en el analítico está.
+Consultor
+Lo que. Y acá lo que de lo que estamos hablando es de con todas esas fuentes automatizadas en lo posible, generar una base de datos, pero no discriminar nada desde la desde el desde el asistente de IA, sino ese es trabajo de ustedes, es hacer este corte, validar esto, mirar cuando hay un buen discrepancia.
+Participante 2
+Sí, entiendo, entiendo que o sea, no podemos sacarlo sin verlo porque después le vamos a tener que dar. Si se postularon 10, le tenemos que dar a una base, pero es decir, sí son 10 personas estas 3000 solo sé que no sé, no tienen estudios universitarios, entonces no avanzaron en el formulario, solo sé nombre, DNI, no tengo estudios universitarios, chau, no sé todo lo demás, el que tiene estudios universitarios después contesta carrera, no es la carrera afuera. Ahora, el que es la carrera me va a juntar CV, DNI y título, y ahí entro yo en la maraña de ver.
+Participante 1
+Como el primer corte va a ser los que están en el Ministerio, están dentro de la fecha y todo validados. Exacto. Los que ponele que no están y no tienen título, pusieron cualquier cosa afuera, como que ellos, No está y después no van a quedar que esos van a ser los que vamos a tener que trabajar más, es porque estén en el medio que pueden estar validados por el Ministerio, pero no les dé la fecha de graduación. Entonces ahí tenemos que chequear esto que decía Participante 2, que le dijeron ahora de que tal vez la fecha como que realmente ellos puedan estar dentro del programa, pero la fecha que se registró los deja afuera.
+Participante 1
+Entonces que ahí tengamos que salvarlos. Claro, porque el si todos los que estén en trámite.
+Participante 1
+Ok, De ahí entiendo que hay una parte que está en la base de los que están en trámite y hay otra parte que puede ser, no sé, el que rindió la materia hace 2 días y todavía no presentó. Entonces ahí tenemos que validar con ellos.
+Participante 1
+Como que hay una instancia también en que vos presentas y te aceptas cuando ya tenés el título en trámite, eso no puede volver atrás, ya está validado que el título va a salir. El tema son las instancias previas.
+Participante 2
+Hay que ver si eso no lo vimos, pero ver si el certificado de título en trámite de efectivamente, que no hay manera que vuelva para atrás, tiene un código de validación o es un papel.
+Participante 1
+No, Para mí esos son los que tienen QR. Voy a voy a buscar a ver si tenemos algún ejemplo que tengan QR o link donde vos podés.
+Participante 2
+O sea, en la documentación igual siempre vamos a tener que validar. Lo que pasa es que si ya sabes que sale en el Ministerio y tenés el título, nosotros ahí ya estamos prácticamente suponiendo que no va a haber margen del error. Si el tipo dice,
+Participante 1
+No, que sí, ya además. O sea, por eso sí, si el Ministerio dice OK, el título está, yo no tengo nada más.
+Participante 2
+No, Ahí no, ahí no debería haber tal cual. Solo en estos fechas que están en la ventana el corte, si era hasta diciembre de 2024 no hay margen de error para.
+Participante 1
+Los que están en una ventana, sí, porque hay una parte que es la validación con las universidades, que eso sí es más manual, porque si no el título no tiene el QR, un link o algo que le dé como más, no sé, como valor. De que no sea algo adulterado, como que ya lo tenemos que ver con la facultad para que la facultad directamente valide ahí abierto a no sabemos cuántas personas, cuántas facultades o universidades, según.
+Participante 2
+Eso para mí es casi, de hecho,
+Participante 1
+O sea, y como que si son privadas no tanto, pero el tema es, no sé, la uva, olvídate.
+Participante 2
+No, yo creo que el punto se está en invalidar los títulos, lograr con ese documento, Sacar la información que además esto más no tiene que ver con documentos, sino con el servicio. Ellos lo quieren medio en tiempo real. O sea, se me postulan hoy 1000 Estudiantes.
+Participante 2
+Claro, No hay. No es que hay una semana para procesar la información. La idea es ir procesando porque ellos tienen que ir viendo si se postularon, por ejemplo, de ciencias económicas, contadores o no. Tengo que ir a a llamar contadores tipo a claro,
+Participante 1
+Como que la convocatoria. El tiempo son 15 días de postulación. Ahí se cierran las la recepción de currículas de inscripciones y después nos queda una semana más para terminar de procesar. Pero bueno, eso es lo que decía gas de como que diariamente ir midiendo por si necesitamos hacer alguna acción. Claro. Más específica y proactiva para ciertas carreras que por ahí no tengan tanta convocatoria.
+Consultor
+Esto para algo que no terminé de comprender era esto que decía de hasta 30 días por 6 meses, que mencionaba que dice duración 6 meses, habilitación hasta 30 días, volumen 500 por día, pico de 3000. Esto, Determina algo con la fecha de entrega o algo por el estilo? Para cuándo tiene que estar esto esta solución desarrollada?
+Participante 2
+Esto en realidad es así. Nosotros veo que todos fue las apuradas porque ellos necesitaban pasar así, digamos, no tienen todavía definidos internamente, van a tener que hacerlo a través de una licitación pública o no. Bueno, tiene que ver con los importes y demás, pero podía ser que lo tuviera que largar ya o que sea en diciembre o que sea en enero, no lo saben. Ahora, el proceso, como te decía, solo es así, ponele que mañana ellos tengan que salir. Bueno, nosotros vamos a tener 8 días de calibración, de ver cómo es el formulario de eliminación, cómo vamos a hacer el reporte, cómo vas a recibir la información y demás.
+Participante 2
+Después son 15 días en las que yo salgo a difundir y que la se me empiecen a inscribir las personas. En esos 15 días tengo que ir procesando, no online, pero más o menos la información para ir viendo esta cuestión de mira de los 2000 del primer día. 600 tienen el título OK, bueno, vamos a avanzar y así 15 días cierro la inscripción y tengo otros 7 días para terminar de validar esto, porque puede pasar eso ya sí es un trabajo más manual que vos digas, mirá, hay una persona que cargó el título que sale en el Ministerio, pero no sé, bueno, no, ese sería debería estar bien, no se cargó el título, no sale en el Ministerio.
+Participante 2
+Y algo falla con el link. Qué pasa? Hay que corroborar si está adulterado o fallamos nosotros en la evaluación, lo que sea. Bueno, esos casos que para eso interviene la universidad o lo que fuese, para poder tipificarlo. No sé si es que el candidato me falseó un documento o hay algo que está fallando, pero deberíamos llegar en ese plazo de 7 días a terminar todo el grueso. Bien. Y el proceso de validación entonces es esta API para o este el ministerio para saber si está egresado o no, porque es un doble control con el título que vos ya lo ves y ya estás seguro.
+Participante 2
+Sí, y si no está en el ministerio, lo que en concreto te va a dar la información es el título. El título, si tiene QR o link, eso es como un documento, ese es el la certificación del documento. Entonces, en definitiva, el documento real. No lo hayan registrado en algo, alguien emitió un documento real. Claro, es como el código de barra del del DNI. O sea, por más que aparezca otro. Bueno, si vos tenés un DNI y te lo lee y son tus datos biométricos, ya está.
+Participante 2
+Alguien en algún momento lo emitió. Exacto. Bueno, eso sería la validación que hay que hacer. En volúmenes no tenemos precisión del volumen. Creo que ahí decías 500 por día. En realidad no. No hay un volumen porque yo lo abro, claro. Y si se me postulan 5000 son 5000 y si se me postulan 15000 son 15000.
+Consultor
+Claro, No lo sé, tal cual. Y acá hablaba de bueno, tengo más preguntas, pero de habla un poco acerca de la tecnología que en la que se necesita montar todo esto. Habla solamente de una solución standalone o una integrada a la plataforma actual. La plataforma actual, entiendo, es el ATS de ustedes. Sí.
+Consultor
+O sea, por ese lado, ¿cuál de los dos lugares es el que ustedes ven más adecuado para Explorar?
+Consultor
+El Standalone sería como un sitio, Independiente, independiente o uno integrado.
+Participante 2
+O Sea, una forma sería, yo tengo el documento, los documentos adjuntos en el ATS, tengo que ver de qué manera los descargo y los tiro en la otra herramienta, o vos decís linkear el ATS con la herramienta y que de la ETS migren. Yo no sé si vamos a poder más fácilmente. Sí.
+Consultor
+Yo no sé cómo es, digo, acá tiene en el caso que sea la integración que requiere seguramente un sprint más de trabajo. Necesitamos al equipo de Haití de ustedes porque hay un desarrollo de ustedes que se tienen que conectar a una aplicación. O sea, yo puedo desarrollar un agente o una serie de agentes que.
+Consultor
+Que reciba del lado de ustedes toda la información que cargaron en el formulario, que haga todo el trabajo y vuelva una respuesta con un set de información que lo guarde en una base de datos o lo que sea. O bien, la base de datos puede estar de nuestro lado y buscar la manera que se extraiga y se importe a la ETS. Cuanto más automatizado tiene que ser todo el proceso, Obviamente, amplía los desafíos técnicos.
+Consultor
+Los vamos a tener que poner sobre la mesa e incluso probablemente tener alguna conversación con el área de IT de ustedes para.
+Participante 2
+El HS es una test externa, no es propio de Rico.
+Consultor
+Cómo se llama? Me lo pueden decir?
+Participante 1
+Se llama Shopcombo y
+Participante 1
+Porque ahí sería como donde nosotros centralizamos la titulación, el formulario, la carga de documentación, y eso es lo que como que nos permitiría tener todo en el mismo acceso. Yo no sé, o sea, como que eso no tengo ni idea de lo técnico, pero eso se conecta. Por ejemplo, con una API también.
+Consultor
+Y Depende del sistema que sea, por eso les pregunto, para explorarlo un poquito, porque si es un sistema de terceros lo más moderno, lo más lógico es que tenga la posibilidad de usar conectores y entrar en la información. Después tendremos que gestionar un usuario con acceso y seguridad para que este sistema entre a través de esas credenciales y tome la información. Ahí lo que necesitaría que me den acá estoy buscando a DC shop shop a shop.
+Participante 1
+A ver si te puedo combo, me corta el combo y quiero ver si te puedo compartir en configuraciones para esto.
+Participante 1
+Sí, este es el sistema y acá tiene una parte de configuraciones. Tiene que dice APIs y no sé.
+Consultor
+Si también retorno de tag. Ok, y.
+Participante 1
+Acá hay otro que dice integración, tiene otro espacio, otro que dice integraciones.
+Participante 1
+Pero eso no sé, porque esto es por ahí más interno. Claro. Ellos.
+Participante 1
+Este es el sistema para.
+Participante 1
+Ok. Ahí está. Ahora te dejo.
+Participante 2
+Vamos a pasarle un estilo que copiamos, poder pasarle un formato de descarga de archivo para que veas cómo lo descarga.
+Consultor
+Está bueno eso, cuando cargan el formulario, cómo se descarga la información Claro
+Participante 2
+Porque desde yo como hay algunos formatos de descarga, por ejemplo, hay uno en Excel que tienen que hacer una corrección porque el link que está bajando no abre, pero en principio es como un Excel Y vos tenés cuatro links porque tenemos cuatro juntos, entonces cada link te debería llevar a un adjunto y si no lo manda en Word Sí,
+Participante 1
+Es un un PDF que tiene como, Como si fuera el el Excel con los datos y vos tenés un te dice no sé ver respuesta uno es el DNI respuesta dos DNI dos.
+Participante 2
+Un hipervínculo directamente al.
+Participante 1
+Vos haces entrar al link y ves el documento.
+Consultor
+Ok, y ese acceso debe ser privado a ustedes. Si ustedes mandan el a mí, le doy clic, no me deja entrar.
+Participante 1
+En realidad se puede compartir.
+Participante 1
+Sí, se puede compartir.
+Consultor
+Si me pueden compartir un caso para ver cómo es el mecanismo.
+Consultor
+Y después, por otro lado, yo me quedo con el nombre del sistema y veo en el proveedor qué opciones de APIs tiene, porque en una de esas tiene una API que podemos activar y conectar esta funcionalidad nueva con eso. A priori entiendo como funcionalidad, Una funcionalidad que le va a quedar a deco funcionando, no de o no es exclusiva al cliente.
+Participante 1
+En realidad, nosotros no tenemos un servicio que implique esta validación. O sea, nos podría quedar, pero no es algo que, o sea, nosotros no lo estamos buscando como una solución que nos sirva hoy en otros, Procesos o k porque no tenemos procesos similares de ojalá que sí, que nos abra esto otras oportunidades. Pero hoy, ponele, si es algo de documentación, sí, nosotros lo tenemos.
+Participante 2
+Podríamos incluir los secundarios, podrías hacer cierta opinión de título para, por ejemplo, sí
+Participante 1
+La de verificación.
+Participante 2
+Habría que como, o sea, sería algo parecido, pero reconfigurar, ver si puede validar otro tipo de, o sea, el documento de un analítico de secundario.
+Participante 1
+Sí, pero nosotros hoy lo nos puede servir. Pero acá lo que nos piden es, porque por ahí de secundarios no hay una base que no tenga todo lo que tenga
+Participante 2
+No, no, no, pero el documento y que valide que es real el documento que existe. O sea, que vas a un lugar y que él no sé, te tipifique el título. Entonces te diga técnico, tengo un shell.
+Consultor
+Perfecto.
+Consultor
+Bueno, Creo que más o menos a de lo otro que les quería preguntar que estaba viendo acá el alcance funcional y que y que a ver quién de quién es la responsabilidad de validar esto y si es del lado de la funcionalidad nueva o del lado del formulario de la TS. Dice que se valida que el CV en el CV haya un archivo adjunto aunque no validar el contenido, pero que el CV sea un CV. Esa información, Se la tendrá que validar el la inteligencia artificial?
+Consultor
+Claro, si vamos a validar el resto
+Participante 2
+O sea, o sea, si se puede, se podría hacer, porque si yo si yo puedo bajar ese descargable que te decíamos, ese PDF, yo te le tiro el PDF a la inteligencia artificial, valida que el título universitario existe y sea correcto. Y validar el otro link que es un CV.
+Participante 1
+Para eso, validamos todo. Igual yo me tengo que ver, meter a ver si es un documento, si el documento coincide, miro si hay un currículum. Debería poder
+Participante 2
+Si se puede validar todos los documentos cargados y ver de qué manera, te lo agrupo y te dice Referente 3 Pérez
+Participante 1
+El DNI coincide con el título y el nombre.
+Consultor
+Claro, nos dice que el DNI se tiene que confirmar que esté adjunto y que sea legible por el otro.
+Consultor
+Por lo tanto, habrá que revisar que se pueda ver. La IA tendrá que reconocer que no sé algún algún o CR que tome ciertos datos y que los tome en sí, que los pueda interpretar. No después decía procesar estos documentos, la otra. Que van a pedir una selfie.
+Consultor
+Capturar en el momento y comparar con la fotografía visible en el DNI sin prueba de vida. Es un poco raro.
+Participante 2
+No, la prueba de vida en general es.
+Consultor
+Cuando vos validás con el Renaper que te dice mover la cabeza a la izquierda o a la derecha
+Participante 2
+Todo eso. No existe. Por eso, en realidad. Eso no. Si la persona, primero, si está en el ministerio ese título, es muy raro que alguien cargue el DNI diferente y que no sea la persona que tiene todo, no tiene tampoco tanto sentido.
+Participante 1
+No, porque en realidad lo que ellos ahí van a tener que validar es que después la persona que se presente a hacer el proceso sea la del DNI.
+Participante 2
+Exacto, claro
+Participante 1
+Pero igual no.
+Participante 2
+Sería un riesgo de que eso a última parte sería un riesgo de que alguien cargue todo de alguien que debería poder participar y no es el que quiere participar. Me parece un escenario casi imposible. Acá el tema es que. Tenga el riesgo de que falsifiquen un documento, principalmente un título, porque con lo el tema de la IA,
+Participante 1
+Puedas hacer un
+Participante 2
+Título o decir, bueno, tomaste este documento y ahora hacerlo igual para mí, diciendo que yo soy contador público. Entonces la IA te haga el mismo PDF y en lugar de Referente 3 Referente 4, diga Participante 2 y yo soy contador. Entonces vos tenés que ir al link. Ir al al QR, ir al de origen y ahí te va a decir Referente 3 Referente 4. Claro, eso es lo que nosotros tendríamos que validar. Perfecto. Tampoco creo que sean miles de casos, pero bueno, puede ser.
+Consultor
+Tal cual, perfecto.
+Consultor
+Debe contratar.
+Participante 1
+Pero igual está bien ver todos los puntos, por ejemplo, lo de la documentación es importante y no lo estábamos.
+Participante 2
+Sí, sí, sí. Por eso, yo diría, busquémosle el título para que vaya viendo qué manera de linkearlo ahí. Y busquemos un descargable de Chocongo para que vea cómo podemos llegar a compartirle la información para que la procesen. Perfecto. Después nosotros tenemos que armar una base, o sea que si de todo esto se arrojar un Excel, no hay problema, porque yo entiendo que ahí si el entregable es una base, es un Excel.
+Consultor
+El Entregable es un Excel. Después todas estas, estos criterios de filtrado y de elegible, no elegible y demás. Ustedes lo tienen definido, escrito ya documentado.
+Participante 2
+Bueno, pero lo podemos. O sea, aparte es una una cuestión a definir en el filo con el cliente. Obviamente tenemos un cuestión de, por ejemplo,
+Participante 1
+Bueno, carreras, fecha de graduación. Y después lo que vamos a tener que van a ser los casos que nosotros no vamos a poder validar, Desde el inicio son estos que están en el medio del título en trámite. Claro.
+Participante 2
+Sí, Por ver la de las posiciones van a ser en Ciudad de Buenos Aires. Por lo tanto, si vos sos de Salta, te tenés que venir a radicar. Yo supongo que alguna pregunta está disponible o tener interés en radicarte en Ciudad de Buenos Aires. Algo así hay que preguntar. Claro, pero no están perfectamente definidas.
+Consultor
+Eventualmente eso se puede alimentar también a la idea para que, Para que discriminen todo eso y les haga más fácil el trabajo a ustedes para decir, este segmento de filas tenés que validar en trámite, este segmento de filas tenés que validar discrepancia entre este dato y este dato que necesita una inspección manual o cosas por el estilo como para organizarles también a ustedes el trabajo y que hacérselo más deficientes. Pero.
+Participante 1
+Porque ahí por ejemplo, o sea, porque digo los que están afuera porque no se trasladan, no tengan la carrera, está bien, el tema es que los que contestan también vamos a tener que validar esto que va a decir, no sé, la carrera en el título o las fechas.
+Consultor
+Pero bueno, eso cuando lo tengan, en el momento que lo tengan definido se podrá se podrá incorporar y que empiece a hacer esa discriminación por salir por carrera. Y que ustedes puedan verificar estos 1500, salieron por carrera, estudiaban, no sé, repostería, tal, tal cosa y no sé qué, ¿no? Y que no aparezca entre medio uno de administración que sí.
+Consultor
+Perfecto.
+Participante 2
+Y te hago una consulta, si ponele, ponele que nosotros mandamos la información, vos ya sabes lo que tenés que validar, se puede validar y más, pero esta cuestión del formulario y demás, Hay algún tiempo de implementación que se requiere por esto que nos decían, por ejemplo, del bot de entrenar el bot? Porque es posible que haya un plazo mayor para entrenarlo, pero puede ser que el proyecto, si se activa, no tenga 30 días. Entonces, si hay que entrenar a 30 días, es como que no voy a llegar.
+Participante 2
+Mira, cuánto tarda?
+Consultor
+Todo depende y no sé, no tengo en este momento la respuesta precisa porque tengo entender un poco el escenario. Por el que se podría llegar a ir en el caso que sea un bot, que para mí no es la mejor solución, porque cualquier cosita que suceda, el bot deja de funcionar, o sea, básicamente uno lo que lo que desarrolla es poner una máquina boba en la en un escritorio y estar corriendo un agente que hace los movimientos del mouse y clicks y copia y pega la información.
+Consultor
+Procesando todo eso a un ritmo un poco lento al lado de las API. Cualquier cosa que cambie, puede dejar de funcionar y a los bots hay que darle mantenimiento. Entonces, se necesita que haya alguien que esté identificando y decir: "Ah, dejó de funcionar, se alarma" y demás, pero dejó de funcionar y hay que hacer un ajuste en la programación.
+Consultor
+Dado que hay que validar poquitas cosas, no creo que se necesite un mes de entrenamiento. O sea, son pocas cosas, son es hacer un clic acá, hacer un clic allá, ir a buscar esta información, copiar, pegar y llevarlo a una a una base de datos y listo. No lo veo muy complejo desde ese punto de vista. Sí tiene esa contracara de es muy susceptible a errores ante cualquier mínimo cambio que haya en la interfaz. Esa es la única cosita que lo veo como no óptimo y siempre a través de una API y demás es muchísimo más seguro y más rápido.
+Consultor
+Pero. Pero simplemente es por ese lado, lo tengo que explorar en un poco para entender el proceso. Ese es tengo que entrar al ministerio, tengo que ver, o sea, tenemos que ver. Yo después le voy a presentar a alguien del equipo, un técnico del equipo para trabajarlo, pero que con él vamos a hacer la propuesta y en función de ir explorando todo eso, ahí seguro va a dar, va a dar el tiempo que necesitemos. Y lo hago por otro lado es. Cuanto más cosas tiene que hacer, obviamente más compleja se vuelve la solución y va a llegar a un punto donde decir, che, no tiene sentido porque sale más cara la solución que el servicio de Adecco para apoyar a esto.
+Consultor
+Y esto me va a ver otra pregunta, es, ¿ustedes lo cotizaron, le pusieron un precio a esto o no?
+Participante 2
+Sí, todo el servicio en términos generales y.
+Consultor
+Pero No esto como un módulo separado.
+Participante 2
+No, no, no, porque en realidad de vuelta a ver acá el tema es si podemos automatizar cuestiones por dos motivos, uno por un tema de eficiencia y por un tema de efectividad. Pero la realidad es que el viernes pasado cerraban la presentación de la propuesta. Fue todo como medio bueno. Claro, tiene que presentarlo y nosotros tuvimos que calcular medio como que si se hiciera medio manual.
+Participante 1
+Y con una parte pero bueno también.
+Participante 1
+Haríamos como un mix, no, porque si no lo podemos automatizar, tendríamos también como un proveedor externo que nos daría un servicio. Pero es más, o sea, tampoco automatizado. Entonces nosotros dijimos entre como eso. Bueno, podemos. No nos rendimos a que se pueda hacer algo en la era de la IA, porque todo el mundo está todo que nosotros tengamos que estar controlando manualmente esto.
+Participante 2
+Claro, no había tiempo de hacer esta hacer la reunión para darte la información que tampoco la tenemos todas. Entonces era como que no vamos a hacer, había que presentarnos, pero sí estamos buscando avanzar por dos motivos, uno por tiempos y otro por efectividad también, porque y evidentemente debería, si la IA está bien parametrizada, ver, 5000 archivos y no cansarse. Yo y 300 me cansé y ya ha valido cualquier cosa. Ese es el riesgo.
+Consultor
+Sí, rotundamente. Total. Clarísimo. Bueno, Bárbaro, yo me quedo con revisar el Socombo, me quedo con revisar las posibilidades de APIs que hayan por ahí. Si ustedes se enteran algo de parte del cliente, por favor avisen. Y me pasan esos documentos como para empezar a entender el recorrido que tendría que hacer la IA para guardar toda esa información. Entendiendo todo esto, plantearemos una solución posible y ahí ya iremos más a detalle, alcance, tiempo, esfuerzo, dinero, etcétera.
+Consultor
+Con respecto, Ah, última cosa, siempre perdonen, que acá abajo en el documento dice criterio, no, criterio de evaluación, no, acá, estructura económica requerida, habla de costo unitario, costo fijo, escalas y rappel. Esto es así está pedido por el cliente o esto está pedido por ustedes?
+Participante 2
+No, supongo que será orientativo, no esto es para entender si hay un descuento por volumen, si el precio, pero no sé, todavía no tenemos bien claro.
+Participante 2
+Listo, listo, listo.
+Participante 1
+No, y nosotros ahí tampoco tenemos, o sea, más allá de que esté cotizado para decirte, como es un mix entre cómo lo haríamos, tampoco te puedo decir, tenemos, no sé, este presupuesto, porque tampoco tenemos idea de qué costo tiene, Claro. Como Que ahí avancemos, y también si después nosotros te decimos, se nos reba, no sabemos, como que ahí veremos, pero no tenemos como referencias.
+Consultor
+Bien, bien. Está clarísimo. Ahora ya me quedó mucho más claro y con esto que nos llevamos cada uno, ya creo que voy a tener panorama más claro todavía para cotizar. Va, para armar la propuesta y después cotizar.
+Participante 1
+Álvaro, Muchísimo, bueno, gracias,
+Consultor
+Por favor, gracias a vos, me escribes. Dale, chao, hasta luego.
