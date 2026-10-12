@@ -6,6 +6,7 @@ import structlog
 from litellm import Router
 
 from app.config import Settings, get_settings
+from app.services.cache import EstimationCache
 from app.services.pricing import calculate_cost
 
 log = structlog.get_logger()
@@ -24,11 +25,12 @@ def _cost(model: str, input_tokens: int, output_tokens: int) -> float | None:
 
 
 class LLMWrapper:
-    def __init__(self, settings: Settings | None = None):
+    def __init__(self, settings: Settings | None = None, cache: EstimationCache | None = None):
         s = settings or get_settings()
         self.primary_model = s.PRIMARY_MODEL
         self.max_tokens = s.LLM_MAX_TOKENS
         self.temperature = s.LLM_TEMPERATURE
+        self.cache = cache or EstimationCache.from_url(s.REDIS_URL, ttl=s.CACHE_TTL)
         self.router = Router(
             model_list=[
                 {
@@ -53,12 +55,26 @@ class LLMWrapper:
         )
 
     def complete(self, *, system_prompt: str, user_message: str) -> dict:
+        t0 = time.perf_counter()
+        key = EstimationCache.make_key(
+            system_prompt=system_prompt,
+            user_message=user_message,
+            model=self.primary_model,
+            max_tokens=self.max_tokens,
+            temperature=self.temperature,
+        )
+        cached = self.cache.get(key)
+        if cached:
+            latency_ms = int((time.perf_counter() - t0) * 1000)
+            log.info("llm_cache_hit", key_prefix=key[:20], latency_ms=latency_ms)
+            return {**cached, "cache_hit": True, "cost_usd": 0.0, "latency_ms": latency_ms}
+        log.info("llm_cache_miss", key_prefix=key[:20])
+
         messages = [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_message},
         ]
         log.info("llm_call_started", primary=self.primary_model)
-        t0 = time.perf_counter()
         try:
             response = self.router.completion(
                 model="primary",
@@ -92,7 +108,7 @@ class LLMWrapper:
             cost_usd=cost,
             latency_ms=latency_ms,
         )
-        return {
+        result = {
             "estimation": response.choices[0].message.content or "",
             "model": model,
             "provider": provider,
@@ -101,3 +117,5 @@ class LLMWrapper:
             "cost_usd": cost,
             "latency_ms": latency_ms,
         }
+        self.cache.set(key, result)
+        return {**result, "cache_hit": False}
