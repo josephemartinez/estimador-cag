@@ -1,14 +1,6 @@
-from anthropic import AsyncAnthropic
-
-from app.config import get_settings
+from app.services.llm_wrapper import LLMWrapper
 from app.context.examples import ESTIMATION_EXAMPLES
 from app.context.rates import format_roles
-from app.services.pricing import calculate_cost
-
-
-settings = get_settings()
-client = AsyncAnthropic(api_key=settings.ANTHROPIC_API_KEY)
-
 
 def format_examples(examples: list[dict]) -> str:
     """Convierte la lista de ejemplos en el bloque de texto que se inyecta en el prompt."""
@@ -55,25 +47,5 @@ siguiendo la misma estructura: desglose por rol con horas y tarifas, total,
 supuestos, riesgos y fuera de alcance. Si la transcripcion no alcanza para
 estimar algo, declaralo como supuesto explicito en vez de inventarlo."""
 
-
-async def generate_estimation(transcription: str) -> dict:
-    system_prompt = build_system_prompt()
-
-    response = await client.messages.create(
-        model=settings.LLM_MODEL,
-        max_tokens=settings.LLM_MAX_TOKENS,
-        system=system_prompt,
-        messages=[{"role": "user", "content": transcription}],
-    )
-
-    return {
-        "estimation": response.content[0].text,
-        "model": settings.LLM_MODEL,
-        "provider": settings.LLM_PROVIDER,
-        "input_tokens": response.usage.input_tokens,
-        "output_tokens": response.usage.output_tokens,
-        "cost_usd": calculate_cost(
-            settings.LLM_MODEL,
-            response.usage.input_tokens,
-            response.usage.output_tokens,
-        ),}
+def generate_estimation(wrapper: LLMWrapper, transcription: str) -> dict:
+    return wrapper.complete(system_prompt=build_system_prompt(), user_message=transcription)

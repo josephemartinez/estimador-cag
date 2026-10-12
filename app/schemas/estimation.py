@@ -16,3 +16,5 @@ class EstimationResponse(BaseModel):
     input_tokens: int
     output_tokens: int
     cost_usd: float | None
+    latency_ms: int | None = None
+    cache_hit: bool = False
