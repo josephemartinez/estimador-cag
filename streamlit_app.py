@@ -1,16 +1,47 @@
-import time
+import json
 
+import httpx
 import streamlit as st
-from anthropic import Anthropic
 
 from app.config import get_settings
 from app.context.examples import ESTIMATION_EXAMPLES
 from app.services.llm_service import build_system_prompt, format_examples
-from app.services.pricing import calculate_cost
 
 settings = get_settings()
-client = Anthropic(api_key=settings.ANTHROPIC_API_KEY)
+STREAM_URL = f"{settings.ESTIMATOR_API_BASE_URL.rstrip('/')}/api/v1/estimate/stream"
 
+
+def stream_estimation(transcription: str, meta: dict):
+    """Lee el flujo SSE de la API. Entrega el texto y deja las metricas en `meta`."""
+    with httpx.stream(
+        "POST",
+        STREAM_URL,
+        json={"transcription": transcription},
+        timeout=httpx.Timeout(180.0, connect=10.0),
+        headers={"Accept": "text/event-stream"},
+    ) as response:
+        response.raise_for_status()
+        event, data = "token", []
+        for line in response.iter_lines():
+            if line == "":
+                if data:
+                    payload = "\n".join(data)
+                    if event == "token":
+                        yield payload
+                    elif event == "meta":
+                        meta.update(json.loads(payload))
+                    elif event == "error":
+                        raise RuntimeError(payload)
+                    elif event == "done":
+                        return
+                event, data = "token", []
+            elif line.startswith("event:"):
+                event = line[6:].strip()
+            elif line.startswith("data:"):
+                data.append(line[6:] if line.startswith("data: ") else line[5:])
+
+
+st.set_page_config(page_title="Estimador CAG")
 st.title("Estimador CAG")
 
 if "messages" not in st.session_state:
@@ -25,49 +56,34 @@ if transcription := st.chat_input("Pegá la transcripción de la reunión"):
     with st.chat_message("user"):
         st.markdown(transcription)
 
-    inicio = time.perf_counter()
+    meta: dict = {}
+    texto = None
     with st.chat_message("assistant"):
-        with client.messages.stream(
-            model=settings.LLM_MODEL,
-            max_tokens=settings.LLM_MAX_TOKENS,
-            system=build_system_prompt(),
-            messages=[{"role": "user", "content": transcription}],
-        ) as stream:
-            texto = st.write_stream(stream.text_stream)
-            final = stream.get_final_message()
+        try:
+            texto = st.write_stream(stream_estimation(transcription, meta))
+        except (httpx.HTTPError, RuntimeError) as exc:
+            st.error(f"No se pudo obtener la estimación: {exc}")
 
-    st.session_state.messages.append({"role": "assistant", "content": texto})
-    st.session_state.last_metrics = {
-        "model": settings.LLM_MODEL,
-        "input_tokens": final.usage.input_tokens,
-        "output_tokens": final.usage.output_tokens,
-        "seconds": time.perf_counter() - inicio,
-        "cost_usd": calculate_cost(
-            settings.LLM_MODEL,
-            final.usage.input_tokens,
-            final.usage.output_tokens,
-        ),
-    }
+    if texto:
+        st.session_state.messages.append({"role": "assistant", "content": texto})
+        st.session_state.last_metrics = meta
 
-# Panel lateral (va al final para que muestre las métricas de la llamada recién hecha)
 with st.sidebar:
     st.header("Contexto del modelo")
-
     with st.expander("System prompt activo"):
         st.text(build_system_prompt())
-
     with st.expander("Contexto estático (ejemplos CAG)"):
         st.caption(f"{len(ESTIMATION_EXAMPLES)} ejemplos inyectados en cada llamada")
         st.markdown(format_examples(ESTIMATION_EXAMPLES))
-
     st.subheader("Última llamada")
-    metricas = st.session_state.get("last_metrics")
-    if metricas:
-        st.write(f"**Modelo:** {metricas['model']}")
-        st.write(f"**Tokens de entrada:** {metricas['input_tokens']}")
-        st.write(f"**Tokens de salida:** {metricas['output_tokens']}")
-        st.write(f"**Tiempo:** {metricas['seconds']:.1f} s")
-        if metricas["cost_usd"] is not None:
-            st.write(f"**Costo:** US$ {metricas['cost_usd']}")
+    m = st.session_state.get("last_metrics")
+    if m:
+        st.write(f"**Modelo:** {m.get('model')} ({m.get('provider')})")
+        st.write(f"**Cache:** {'acierto' if m.get('cache_hit') else 'fallo'}")
+        st.write(f"**Tokens de entrada:** {m.get('input_tokens')}")
+        st.write(f"**Tokens de salida:** {m.get('output_tokens')}")
+        st.write(f"**Tiempo:** {(m.get('latency_ms') or 0) / 1000:.1f} s")
+        if m.get("cost_usd") is not None:
+            st.write(f"**Costo:** US$ {m['cost_usd']}")
     else:
         st.caption("Todavía no hay llamadas.")
