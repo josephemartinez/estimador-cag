@@ -45,6 +45,6 @@ class EstimationCache:
 
     def set(self, key: str, value: dict) -> None:
         try:
-            self.client.setex(key, self.ttl, json.dumps(value))
+            self.client.set(key, json.dumps(value), ex=self.ttl)
         except redis.RedisError as exc:
             log.warning("cache_set_failed", error=str(exc))
