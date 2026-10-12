@@ -1,3 +1,5 @@
+from collections.abc import Iterator
+
 import re
 import time
 
@@ -119,3 +121,94 @@ class LLMWrapper:
         }
         self.cache.set(key, result)
         return {**result, "cache_hit": False}
+    def complete_stream(self, *, system_prompt: str, user_message: str) -> Iterator[dict]:
+        t0 = time.perf_counter()
+        key = EstimationCache.make_key(
+            system_prompt=system_prompt,
+            user_message=user_message,
+            model=self.primary_model,
+            max_tokens=self.max_tokens,
+            temperature=self.temperature,
+        )
+        cached = self.cache.get(key)
+        if cached:
+            latency_ms = int((time.perf_counter() - t0) * 1000)
+            log.info("llm_cache_hit", mode="stream", key_prefix=key[:20], latency_ms=latency_ms)
+            yield {"type": "token", "text": cached["estimation"]}
+            meta = {k: v for k, v in cached.items() if k != "estimation"}
+            yield {
+                "type": "meta",
+                **meta,
+                "cache_hit": True,
+                "cost_usd": 0.0,
+                "latency_ms": latency_ms,
+            }
+            return
+        log.info("llm_cache_miss", mode="stream", key_prefix=key[:20])
+
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_message},
+        ]
+        log.info("llm_stream_started", primary=self.primary_model)
+        parts: list[str] = []
+        usage = None
+        model = self.primary_model
+        try:
+            response = self.router.completion(
+                model="primary",
+                messages=messages,
+                max_tokens=self.max_tokens,
+                temperature=self.temperature,
+                stream=True,
+                stream_options={"include_usage": True},
+            )
+            for chunk in response:
+                if getattr(chunk, "model", None):
+                    model = chunk.model
+                if getattr(chunk, "usage", None):
+                    usage = chunk.usage
+                if chunk.choices:
+                    delta = chunk.choices[0].delta.content
+                    if delta:
+                        parts.append(delta)
+                        yield {"type": "token", "text": delta}
+        except Exception as exc:
+            log.error(
+                "llm_stream_failed",
+                error_type=type(exc).__name__,
+                error=str(exc),
+                latency_ms=int((time.perf_counter() - t0) * 1000),
+            )
+            raise
+
+        latency_ms = int((time.perf_counter() - t0) * 1000)
+        model = model.split("/", 1)[-1]
+        provider = _provider(model)
+        input_tokens = (usage.prompt_tokens or 0) if usage else None
+        output_tokens = (usage.completion_tokens or 0) if usage else None
+        cost = _cost(model, input_tokens, output_tokens) if usage else None
+
+        log.info(
+            "llm_stream_completed",
+            model=model,
+            provider=provider,
+            fallback_used=provider != _provider(self.primary_model),
+            input_tokens=input_tokens,
+            output_tokens=output_tokens,
+            cost_usd=cost,
+            latency_ms=latency_ms,
+        )
+        result = {
+            "estimation": "".join(parts),
+            "model": model,
+            "provider": provider,
+            "input_tokens": input_tokens,
+            "output_tokens": output_tokens,
+            "cost_usd": cost,
+            "latency_ms": latency_ms,
+        }
+        if result["estimation"]:
+            self.cache.set(key, result)
+        meta = {k: v for k, v in result.items() if k != "estimation"}
+        yield {"type": "meta", **meta, "cache_hit": False}
