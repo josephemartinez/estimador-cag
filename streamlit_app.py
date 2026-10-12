@@ -22,14 +22,12 @@ if transcription := st.chat_input("Pegá la transcripción de la reunión"):
         st.markdown(transcription)
 
     with st.chat_message("assistant"):
-        with st.spinner("Estimando..."):
-            response = client.messages.create(
-                model=settings.LLM_MODEL,
-                max_tokens=settings.LLM_MAX_TOKENS,
-                system=build_system_prompt(),
-                messages=[{"role": "user", "content": transcription}],
-            )
-        texto = response.content[0].text
-        st.markdown(texto)
-
+        with client.messages.stream(
+            model=settings.LLM_MODEL,
+            max_tokens=settings.LLM_MAX_TOKENS,
+            system=build_system_prompt(),
+            messages=[{"role": "user", "content": transcription}],
+        ) as stream:
+            texto = st.write_stream(stream.text_stream)
+            
     st.session_state.messages.append({"role": "assistant", "content": texto})
